@@ -1,0 +1,14 @@
+id: qa
+role: qa
+capabilities: [testing, vitest, e2e, validation]
+providers:
+  - { name: codex }
+  - { name: claude }
+on_quota: pause
+prompt: prompts/qa.md
+timeout_minutes: 20
+max_attempts: 3
+consumes:
+  - { from: ba, artifacts: [spec] }
+  - { from: self, review_issues: true }
+produces: [test-report]

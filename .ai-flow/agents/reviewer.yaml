@@ -1,0 +1,12 @@
+id: reviewer
+role: reviewer
+capabilities: [code-review, clean-code, security]
+providers:
+  - { name: codex }
+  - { name: claude }
+on_quota: pause
+prompt: prompts/reviewer.md
+timeout_minutes: 15
+max_attempts: 2
+consumes:
+  - { from: ba, artifacts: [spec, api-contract] }

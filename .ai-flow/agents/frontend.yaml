@@ -1,0 +1,15 @@
+id: frontend
+role: frontend
+capabilities: [typescript, react, css, ui]
+providers:
+  - { name: codex }
+  - { name: claude }
+on_quota: pause
+prompt: prompts/frontend.md
+paths: [frontend/**]
+timeout_minutes: 30
+max_attempts: 3
+consumes:
+  - { from: ba, artifacts: [spec, api-contract] }
+  - { from: self, review_issues: true }
+produces: [notes]

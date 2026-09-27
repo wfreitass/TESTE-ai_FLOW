@@ -1,0 +1,14 @@
+name: feature
+version: 1
+settings:
+  base_branch: develop
+  target_branch: "feature/{spec_id}-{slug}"
+  max_review_iterations: 3
+nodes:
+  ba:        { kind: agent, agent: ba }
+  plan:      { kind: planner, agent: planner, depends_on: [ba] }
+  backend:   { kind: agent, agent: backend, depends_on: [plan], expandable: true, id_prefix: BACK, max_tasks: 5 }
+  frontend:  { kind: agent, agent: frontend, depends_on: [plan], expandable: true, id_prefix: FRONT, max_tasks: 5 }
+  qa:        { kind: agent, agent: qa, depends_on: [backend, frontend] }
+  review:    { kind: agent, agent: reviewer, depends_on: [qa], on_changes_requested: reopen }
+  integrate: { kind: system, action: git-integrate, depends_on: [review] }

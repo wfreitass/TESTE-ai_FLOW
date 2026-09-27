@@ -1,0 +1,11 @@
+id: ba
+role: ba
+capabilities: [requirements, specification, architecture]
+providers:
+  - { name: codex }
+  - { name: claude }
+on_quota: pause
+prompt: prompts/ba.md
+timeout_minutes: 15
+max_attempts: 2
+produces: [spec, api-contract]

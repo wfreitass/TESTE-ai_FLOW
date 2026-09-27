@@ -1,0 +1,12 @@
+id: planner
+role: planner
+capabilities: [task-decomposition, dag-planning]
+providers:
+  - { name: codex }
+  - { name: claude }
+on_quota: pause
+prompt: prompts/planner.md
+timeout_minutes: 15
+max_attempts: 2
+consumes:
+  - { from: ba, artifacts: [spec, api-contract] }

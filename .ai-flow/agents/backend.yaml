@@ -1,0 +1,16 @@
+id: backend
+role: backend
+capabilities: [typescript, node, api, database]
+providers:
+  - { name: codex, when: { complexity: [medium, high] } }
+  - { name: claude }
+  - { name: qwen }
+on_quota: pause
+prompt: prompts/backend.md
+paths: [backend/**]
+timeout_minutes: 30
+max_attempts: 3
+consumes:
+  - { from: ba, artifacts: [spec, api-contract] }
+  - { from: self, review_issues: true }
+produces: [notes]
