@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Calculadora</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="calculator.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <section class="calculator" aria-label="Calculadora">
+      <h1 class="visually-hidden">Calculadora</h1>
+
+      <div class="display">
+        <div id="expression" class="display__expression" aria-label="Expressão"></div>
+        <div id="current" class="display__current" role="status" aria-live="polite" aria-atomic="true" aria-label="Valor atual">0</div>
+      </div>
+
+      <div class="keypad" role="group" aria-label="Teclado da calculadora">
+        <button type="button" class="key key--function" data-action="clear" aria-label="Limpar tudo">AC</button>
+        <button type="button" class="key key--function" data-action="delete" aria-label="Apagar último dígito">DEL</button>
+        <button type="button" class="key key--function" data-action="percent" aria-label="Porcentagem">%</button>
+        <button type="button" class="key key--operator" data-action="operator" data-value="÷" aria-label="Dividir">÷</button>
+
+        <button type="button" class="key" data-action="digit" data-value="7" aria-label="Sete">7</button>
+        <button type="button" class="key" data-action="digit" data-value="8" aria-label="Oito">8</button>
+        <button type="button" class="key" data-action="digit" data-value="9" aria-label="Nove">9</button>
+        <button type="button" class="key key--operator" data-action="operator" data-value="×" aria-label="Multiplicar">×</button>
+
+        <button type="button" class="key" data-action="digit" data-value="4" aria-label="Quatro">4</button>
+        <button type="button" class="key" data-action="digit" data-value="5" aria-label="Cinco">5</button>
+        <button type="button" class="key" data-action="digit" data-value="6" aria-label="Seis">6</button>
+        <button type="button" class="key key--operator" data-action="operator" data-value="-" aria-label="Subtrair">−</button>
+
+        <button type="button" class="key" data-action="digit" data-value="1" aria-label="Um">1</button>
+        <button type="button" class="key" data-action="digit" data-value="2" aria-label="Dois">2</button>
+        <button type="button" class="key" data-action="digit" data-value="3" aria-label="Três">3</button>
+        <button type="button" class="key key--operator" data-action="operator" data-value="+" aria-label="Somar">+</button>
+
+        <button type="button" class="key key--function" data-action="toggleSign" aria-label="Inverter sinal">+/-</button>
+        <button type="button" class="key" data-action="digit" data-value="0" aria-label="Zero">0</button>
+        <button type="button" class="key" data-action="decimal" aria-label="Ponto decimal">.</button>
+        <button type="button" class="key key--equals" data-action="equals" aria-label="Igual">=</button>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
